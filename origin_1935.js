@@ -1,4 +1,5 @@
 const NodeMediaServer = require('./node_media_server');
+const antUtils = require("./antUtils");
 
 const config = {
   rtmp: {
@@ -10,12 +11,12 @@ const config = {
   },
   http: {
     port: 8000,
-    mediaroot: '/Users/Shared/littleant_files/liveVideo',
+    mediaroot: antUtils.mediaRoot,
     allow_origin: '*'
   },
 
     trans: {
-        ffmpeg: '/home/wangpengfei/Excoord/ffmpeg-4.0-64bit-static/ffmpeg',
+        ffmpeg: antUtils.ffmpegPath,
         tasks: [
             {
                 app: 'live',
@@ -29,7 +30,7 @@ const config = {
         ]
     },
     relay: {
-        ffmpeg: '/home/wangpengfei/Excoord/ffmpeg-4.0-64bit-static/ffmpeg',
+        ffmpeg: antUtils.ffmpegPath,
         tasks: [
             {
                 app: 'live',
