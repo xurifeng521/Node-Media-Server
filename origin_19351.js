@@ -10,7 +10,7 @@ const config = {
     ping_timeout: 30
   },
   http: {
-    port: 8000,
+    port: 8005,
     mediaroot: antUtils.mediaRoot,
     allow_origin: '*'
   },
