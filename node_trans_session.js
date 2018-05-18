@@ -11,6 +11,7 @@ const dateFormat = require('dateformat');
 const mkdirp = require('mkdirp');
 const fs = require('fs');
 const request = require('request');
+const antUtils = require("./antUtils");
 
 class NodeTransSession extends EventEmitter {
   constructor(conf) {
@@ -98,7 +99,7 @@ class NodeTransSession extends EventEmitter {
   videoRecorfDonenotify(recordInfoMap){
       console.log("videoRecorfDonenotify...........");
       request({
-          url: 'http://192.168.50.34:8080/Excoord_PhoneService/srs/onDvr',
+          url: antUtils.videoRecordNorifyUrl,
           method: "POST",
           json: true,
           body: recordInfoMap

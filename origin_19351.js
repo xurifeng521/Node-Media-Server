@@ -3,7 +3,7 @@ const antUtils = require("./antUtils");
 
 const config = {
   rtmp: {
-    port: 1935,
+    port: 19351,
     chunk_size: 60000,
     gop_cache: true,
     ping: 60,
@@ -19,7 +19,16 @@ const config = {
         ffmpeg: antUtils.ffmpegPath,
         tasks: [
             {
-                app: 'live',
+                app: 'live4',
+                ac: 'aac',
+                hls: true,
+                hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
+
+                mp4: true,
+                mp4Flags: '[movflags=faststart]',
+            },
+            {
+                app: 'screenRecord4',
                 ac: 'aac',
                 hls: true,
                 hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
@@ -33,9 +42,24 @@ const config = {
         ffmpeg: antUtils.ffmpegPath,
         tasks: [
             {
-                app: 'live',
+                app: 'live4',
                 mode: 'push',
-                edge: 'rtmp://192.168.50.34:1936',
+                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://10.26.101.85:19361'
+            },
+            {
+                app: 'live4',
+                mode: 'push',
+                edge: antUtils.debug?'rtmp://localhost:19371':'rtmp://10.45.9.175:19371'
+            },
+            {
+                app: 'screenRecord4',
+                mode: 'push',
+                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://10.26.101.85:19361'
+            },
+            {
+                app: 'screenRecord4',
+                mode: 'push',
+                edge: antUtils.debug?'rtmp://localhost:19371':'rtmp://10.45.9.175:19371'
             }
         ]
     }
