@@ -2,7 +2,7 @@
 class AntUtils{
 }
 
-AntUtils.debug = true;
+AntUtils.debug = false;
 
 AntUtils.ffmpegPath = AntUtils.debug?"/home/wangpengfei/Excoord/Program/ffmpeg/ffmpeg-4.0-64bit-static/ffmpeg":"/root/Excoord/Program/ffmpeg/ffmpeg-4.0-64bit-static/ffmpeg";
 AntUtils.mediaRoot = "/Users/Shared/littleant_files/liveVideo";
