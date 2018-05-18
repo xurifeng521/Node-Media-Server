@@ -10,6 +10,7 @@ const { spawn } = require('child_process');
 const dateFormat = require('dateformat');
 const mkdirp = require('mkdirp');
 const fs = require('fs');
+const request = require('request');
 
 class NodeTransSession extends EventEmitter {
   constructor(conf) {
@@ -18,17 +19,23 @@ class NodeTransSession extends EventEmitter {
   }
 
   run() {
+    var _this = this;
     let vc = 'copy';
     let ac = this.conf.args.ac == 10 ? 'copy' : this.conf.ac ? this.conf.ac : 'aac';
     let inPath = 'rtmp://localhost:' + this.conf.port + this.conf.streamPath;
     let ouPath = `${this.conf.mediaroot}/${this.conf.app}/${this.conf.stream}`;
-    let mapStr = '';
+    var mapStr = '';
+    var recordInfoMap = new Object();
+    var isRecord = false;
     if (this.conf.mp4) {
+      isRecord = true;
       this.conf.mp4Flags = this.conf.mp4Flags ? this.conf.mp4Flags : '';
       let now = new Date();
       let mp4FileName = dateFormat('yyyy-mm-dd-HH-MM') + '.mp4';
       let mapMp4 = `${this.conf.mp4Flags}${ouPath}/${mp4FileName}|`;
       mapStr += mapMp4;
+      recordInfoMap.file = `${ouPath}/${mp4FileName}`;
+      recordInfoMap.stream = `${this.conf.stream}`;
       Logger.log('[Transmuxing MP4] ' + this.conf.streamPath + ' to ' + ouPath + '/' + mp4FileName);
     }
     if (this.conf.hls) {
@@ -47,22 +54,23 @@ class NodeTransSession extends EventEmitter {
     }
     mkdirp.sync(ouPath);
     let argv = ['-y', '-fflags', 'nobuffer', '-analyzeduration', '1000000', '-i', inPath, '-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr];
-    // Logger.debug(argv.toString());
+    //Logger.debug(argv.toString());
+      console.log("wangpengfei---" + argv.toString());
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
     this.ffmpeg_exec.on('error', (e) => {
-      // Logger.debug(e);
+       Logger.debug(e);
     });
 
     this.ffmpeg_exec.stdout.on('data', (data) => {
-      // Logger.debug(`输出：${data}`);
+       Logger.debug(`输出：${data}`);
     });
 
     this.ffmpeg_exec.stderr.on('data', (data) => {
-      // Logger.debug(`错误：${data}`);
+       Logger.debug(`错误：${data}`);
     });
 
     this.ffmpeg_exec.on('close', (code) => {
-      Logger.log('[Transmuxing end] ' + this.conf.streamPath);
+      Logger.log('[Transmuxing end] ' + mapStr);
       this.emit('end');
       fs.readdir(ouPath, function (err, files) {
         if (!err) {
@@ -76,12 +84,29 @@ class NodeTransSession extends EventEmitter {
           })
         }
       });
+      if(isRecord){
+          _this.videoRecorfDonenotify(recordInfoMap);
+      }
     });
   }
 
   end() {
     // this.ffmpeg_exec.kill('SIGINT');
     this.ffmpeg_exec.stdin.write('q');
+  }
+
+  videoRecorfDonenotify(recordInfoMap){
+      console.log("videoRecorfDonenotify...........");
+      request({
+          url: 'http://192.168.50.34:8080/Excoord_PhoneService/srs/onDvr',
+          method: "POST",
+          json: true,
+          body: recordInfoMap
+      }, function(error, response, body) {
+          if (!error && response.statusCode == 200) {
+            console.log("wangpengfei  ----- 通知成功了")
+          }
+      });
   }
 }
 
