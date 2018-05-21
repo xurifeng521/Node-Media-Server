@@ -149,6 +149,9 @@ class NodeRtmpSession {
 
     this.gopCacheEnable = config.rtmp.gop_cache;
     this.socket_timeout = config.socket_timeout ? config.socket_timeout : -1;
+
+    console.log("wnagpenfei--------socket_timeout"+config.socket_timeout);
+
     this.rtmpGopCacheQueue = null;
     this.flvGopCacheQueue = null;
 

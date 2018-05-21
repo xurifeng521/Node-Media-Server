@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d2ae49b-e154-4ea7-9b4f-7d6e9e7fe132" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_rtmp_session.js" afterPath="$PROJECT_DIR$/node_rtmp_session.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin_19351.js" afterPath="$PROJECT_DIR$/origin_19351.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node_rtmp_session.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="node_rtmp_session.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/node_rtmp_session.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="171" column="40" lean-forward="true" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="40" />
+            <state relative-caret-position="380">
+              <caret line="152" column="74" lean-forward="true" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="74" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -60,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="origin_19351.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="origin_19351.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin_19351.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="234">
+              <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -96,8 +94,8 @@
         <option value="$PROJECT_DIR$/edge_19371.js" />
         <option value="$PROJECT_DIR$/node_trans_session.js" />
         <option value="$PROJECT_DIR$/antUtils.js" />
-        <option value="$PROJECT_DIR$/node_rtmp_session.js" />
         <option value="$PROJECT_DIR$/origin_19351.js" />
+        <option value="$PROJECT_DIR$/node_rtmp_session.js" />
       </list>
     </option>
   </component>
@@ -185,12 +183,12 @@
       <workItem from="1526625176482" duration="495000" />
       <workItem from="1526625810477" duration="9815000" />
       <workItem from="1526888930060" duration="622000" />
-      <workItem from="1526892860667" duration="1012000" />
+      <workItem from="1526892860667" duration="1518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11944000" />
+    <option name="totallyTimeSpent" value="12450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="6" width="1617" height="1062" extended-state="6" />
@@ -283,6 +281,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/origin_19351.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/edge_19361.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -301,19 +307,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_rtmp_session.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="171" column="40" lean-forward="true" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="40" />
+        <state relative-caret-position="380">
+          <caret line="152" column="74" lean-forward="true" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="74" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin_19351.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
