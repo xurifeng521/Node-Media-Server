@@ -176,6 +176,10 @@ class NodeRtmpSession {
     this.socket.on('close', this.onSocketClose.bind(this));
     this.socket.on('error', this.onSocketError.bind(this));
     this.socket.on('timeout', this.onSocketTimeout.bind(this));
+    //设置超时时间
+    this.socket.setTimeout(1000*3,function() {
+        console.log('客户端在3s内未通信，将断开连接...');
+    });
     this.isStarting = true;
   }
 
