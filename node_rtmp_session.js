@@ -148,6 +148,7 @@ class NodeRtmpSession {
     this.videoLevel = 0;
 
     this.gopCacheEnable = config.rtmp.gop_cache;
+    this.socket_timeout = config.socket_timeout ? config.socket_timeout : -1;
     this.rtmpGopCacheQueue = null;
     this.flvGopCacheQueue = null;
 
@@ -176,10 +177,13 @@ class NodeRtmpSession {
     this.socket.on('close', this.onSocketClose.bind(this));
     this.socket.on('error', this.onSocketError.bind(this));
     this.socket.on('timeout', this.onSocketTimeout.bind(this));
-    //设置超时时间
-    this.socket.setTimeout(1000*3,function() {
-        console.log('客户端在3s内未通信，将断开连接...');
-    });
+    if(this.socket_timeout > 0){
+        //设置超时时间
+        this.socket.setTimeout(this.socket_timeout,function() {
+            console.log('客户端在'+this.socket_timeout+'s内未通信，将断开连接...');
+        });
+    }
+
     this.isStarting = true;
   }
 

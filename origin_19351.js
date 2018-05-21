@@ -7,7 +7,9 @@ const config = {
     chunk_size: 60000,
     gop_cache: true,
     ping: 60,
-    ping_timeout: 30
+    ping_timeout: 30,
+    //在多长时间未收到客户端的内容
+    socket_timeout:3000
   },
   http: {
     port: 8005,
