@@ -46,22 +46,12 @@ const config = {
             {
                 app: 'live4',
                 mode: 'push',
-                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://10.26.101.85:19361'
-            },
-            {
-                app: 'live4',
-                mode: 'push',
-                edge: antUtils.debug?'rtmp://localhost:19371':'rtmp://10.45.9.175:19371'
+                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://localhost:19350'
             },
             {
                 app: 'screenRecord4',
                 mode: 'push',
-                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://10.26.101.85:19361'
-            },
-            {
-                app: 'screenRecord4',
-                mode: 'push',
-                edge: antUtils.debug?'rtmp://localhost:19371':'rtmp://10.45.9.175:19371'
+                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://localhost:19350'
             }
         ]
     }
