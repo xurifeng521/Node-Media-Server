@@ -104,8 +104,8 @@ class NodeRelayServer {
       if (isPush && app === conf.app) {
         let hasApp = conf.edge.match(/rtmp:\/\/([^\/]+)\/([^\/]+)/);
         conf.ffmpeg = this.config.relay.ffmpeg;
-        conf.inPath = `rtmp://localhost:${this.config.rtmp.port}/${streamPath}`;
-        conf.ouPath = hasApp ? `${conf.edge}/${stream}` : `${conf.edge}/${streamPath}`;
+        conf.inPath = `rtmp://localhost:${this.config.rtmp.port}${streamPath}`;
+        conf.ouPath = hasApp ? `${conf.edge}${stream}` : `${conf.edge}${streamPath}`;
         let session = new NodeRelaySession(conf);
         session.id = id;
         session.on('end', (id) => {
