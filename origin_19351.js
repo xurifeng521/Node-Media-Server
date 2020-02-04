@@ -3,7 +3,8 @@ const antUtils = require("./antUtils");
 
 const config = {
   rtmp: {
-    port: 19351,
+    //port: 19351,
+    port: 19352,
     chunk_size: 60000,
     gop_cache: true,
     ping: 60,

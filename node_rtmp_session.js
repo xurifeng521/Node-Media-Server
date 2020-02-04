@@ -179,9 +179,10 @@ class NodeRtmpSession {
     this.socket.on('error', this.onSocketError.bind(this));
     this.socket.on('timeout', this.onSocketTimeout.bind(this));
     if(this.socket_timeout > 0){
+        const _this = this;
         //设置超时时间
         this.socket.setTimeout(this.socket_timeout,function() {
-            console.log('客户端在'+this.socket_timeout+'s内未通信，将断开连接...');
+            console.log('客户端在'+_this.socket_timeout+'s内未通信，将断开连接...');
         });
     }
 
