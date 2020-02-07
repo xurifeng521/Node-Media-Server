@@ -48,13 +48,13 @@ const config = {
                 app: 'live4',
                 mode: 'push',
                 //edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://localhost:19350'
-                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://live.maaee.com:1935'
+                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://liveqingdao.maaee.com:1935'
             },
             {
                 app: 'screenRecord4',
                 mode: 'push',
                 //edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://localhost:19350'
-                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://live.maaee.com:1935'
+                edge: antUtils.debug?'rtmp://localhost:19361':'rtmp://liveqingdao.maaee.com:1935'
             }
         ]
     }
