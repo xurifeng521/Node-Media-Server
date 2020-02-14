@@ -25,8 +25,8 @@ const config = {
             {
                 app: 'live4',
                 ac: 'aac',
-                hls: true,
-                hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
+                //hls: true,
+                //hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
 
                 mp4: true,
                 mp4Flags: '[movflags=faststart]',
@@ -34,8 +34,8 @@ const config = {
             {
                 app: 'screenRecord4',
                 ac: 'aac',
-                hls: true,
-                hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
+                //hls: true,
+                //hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
 
                 mp4: true,
                 mp4Flags: '[movflags=faststart]',
